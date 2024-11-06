@@ -85,7 +85,7 @@ class AuthentechApp(MDApp):
             return
         
         prediction = model.predict([original_image, test_image])
-        result = "The Test Signature is NOT AUTHENTIC!" if prediction[0][0] > 0.5 else "Signature Verified as AUTHENTIC"
+        result = "The Test Signature is FORGED!" if prediction[0][0] > 0.5 else "Signature Verified as GENUINE"
         self.result_text = f"Verification Result: {result}"
         self.show_dialog(self.result_text)
 
