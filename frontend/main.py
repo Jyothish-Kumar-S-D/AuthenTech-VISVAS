@@ -72,10 +72,10 @@ class AuthentechApp(MDApp):
             self.root.ids.verify_button.disabled = False
             self.compare_signatures()
             return False
-        self.root.ids.progress_bar.value += 50
+        self.root.ids.progress_bar.value += 10
 
     def compare_signatures(self):
-        model_path ="../authentech visvas/signature_verification_model.h5"
+        model_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'signature_verification_model.h5')
         model=load_model(model_path)
         original_image = self.preprocess_image(self.root.ids.original_image.source)
         test_image = self.preprocess_image(self.root.ids.test_image.source)
